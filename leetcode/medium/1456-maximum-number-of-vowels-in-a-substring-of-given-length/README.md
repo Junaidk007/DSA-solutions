@@ -49,8 +49,8 @@ Explanation: "lee", "eet" and "ode" contain 2 vowels.
 
 **Language:** Java  
 **Runtime:** 20 ms (beats 29.88%)  
-**Memory:** 46.1 MB (beats 94.56%)  
-**Submitted:** 2026-10-17T15:16:54.863Z  
+**Memory:** 45.9 MB (beats 96.83%)  
+**Submitted:** 2026-10-17T15:18:18.833Z  
 
 ```java
 
