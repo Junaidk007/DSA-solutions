@@ -37,7 +37,7 @@ class Solution {
         return maxCount;
     }
 
-    public boolean isVowel(char c) {
-        return "aeiou".indexOf(c) != -1;
+    public boolean isVowel(char ch) {
+        return ch == 'a' || ch == 'o' || ch == 'i' || ch == 'e' || ch == 'u';
     }
 }
