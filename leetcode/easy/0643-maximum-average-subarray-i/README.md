@@ -40,7 +40,7 @@ Output: 5.00000
 **Language:** Java  
 **Runtime:** 5 ms (beats 33.36%)  
 **Memory:** 69.4 MB (beats 77.40%)  
-**Submitted:** 2026-10-17T14:17:59.440Z  
+**Submitted:** 2026-10-17T14:23:59.876Z  
 
 ```java
 class Solution {
@@ -53,18 +53,16 @@ class Solution {
             sum = sum + nums[i];
         }
 
-        double currAvg = sum / k;
-        double maxAvg = currAvg;
+        double maxSum = sum;
 
         while(e < nums.length - 1) {
             s++; e++;
 
             sum = sum + nums[e] - nums[s - 1];
-            currAvg = sum / k;
-            maxAvg = Math.max(currAvg, maxAvg);
+            maxSum = Math.max(sum, maxSum);
         }
 
-        return maxAvg;
+        return (maxSum / k);
     }
 }
 ```
