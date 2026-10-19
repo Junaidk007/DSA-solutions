@@ -39,13 +39,13 @@ Explanation: The first 6 sub-arrays of size 3 have averages greater than 5. Note
 
 **Language:** Java  
 **Runtime:** 4 ms (beats 27.87%)  
-**Memory:** 71.6 MB (beats 76.11%)  
-**Submitted:** 2026-10-19T15:15:02.438Z  
+**Memory:** 71.3 MB (beats 93.56%)  
+**Submitted:** 2026-10-19T15:39:21.036Z  
 
 ```java
 class Solution {
     public int numOfSubarrays(int[] arr, int k, int threshold) {
-        int s = 0;
+        int start = 0;
 
         double sum = 0;
 
@@ -56,9 +56,13 @@ class Solution {
         int count = (sum / k) >= threshold ? 1 : 0;
 
         for(int end = k; end < arr.length; end++) {
-            s++;
-            sum = sum + arr[end] - arr[s - 1];
-            count = (sum / k) >= threshold ? count + 1 : count;
+            start++;
+
+            sum = sum + arr[end] - arr[start -1];
+
+            if(sum / k >= threshold) {
+                count++;
+            }
         }
 
         return count;
