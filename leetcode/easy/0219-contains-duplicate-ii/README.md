@@ -44,21 +44,22 @@ Output: false
 
 **Language:** Java  
 **Runtime:** 31 ms (beats 67.36%)  
-**Memory:** 124.1 MB (beats 57.10%)  
-**Submitted:** 2026-10-24T14:24:57.115Z  
+**Memory:** 124.2 MB (beats 55.33%)  
+**Submitted:** 2026-10-24T16:42:27.631Z  
 
 ```java
 class Solution {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
+        
         HashMap<Integer, Integer> map = new HashMap<>();
 
         for(int i = 0; i < nums.length; i++) {
+
             if(map.containsKey(nums[i]) && i - map.get(nums[i]) <= k) {
                 return true;
             }
 
             map.put(nums[i], i);
-            
         }
 
         return false;
