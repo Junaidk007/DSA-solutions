@@ -53,8 +53,8 @@ The strings `s` and `t` can not be made identical as `'1'` needs to be mapped to
 
 **Language:** Java  
 **Runtime:** 17 ms (beats 39.06%)  
-**Memory:** 43 MB (beats 99.43%)  
-**Submitted:** 2026-10-27T15:09:19.760Z  
+**Memory:** 43.4 MB (beats 93.86%)  
+**Submitted:** 2026-10-27T16:13:10.858Z  
 
 ```java
 class Solution {
