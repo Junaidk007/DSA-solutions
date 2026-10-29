@@ -43,52 +43,67 @@ Given an array of strings `strs`, group the anagrams together. You can return th
 ## Solution
 
 **Language:** Java  
-**Runtime:** 2056 ms (beats 5.05%)  
-**Memory:** 49.1 MB (beats 91.70%)  
-**Submitted:** 2026-10-29T14:34:41.515Z  
+**Runtime:** 7 ms (beats 74.99%)  
+**Memory:** 49.2 MB (beats 91.70%)  
+**Submitted:** 2026-10-29T14:46:17.067Z  
 
 ```java
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
+
+        HashMap<String, List<String>> map = new HashMap<>();
+
+        for(String word : strs) {
+            char[] ch = word.toCharArray();
+            Arrays.sort(ch);
+
+            String key = new String(ch);
+
+            if(!map.containsKey(key)) map.put(key, new ArrayList<>());
+
+            map.get(key).add(word);
+        }
+
+        return new ArrayList<>(map.values());
         
-        List<List<String>> ans = new ArrayList<>();
-        HashMap<String, Integer> map = new HashMap<>();
+        // List<List<String>> ans = new ArrayList<>();
+        // HashMap<String, Integer> map = new HashMap<>();
 
-        for(int i = 0; i < strs.length; i++) {
-            if(map.containsKey(strs[i])) continue;
-            List<String> list = new ArrayList<>();
-            list.add(strs[i]);
-            map.put(strs[i], 1);
-            for(int j = i + 1; j < strs.length; j++) {
-                // if(map.containsKey(strs[j])) continue;
-                if(isAnagram(strs[i], strs[j])) {
-                    list.add(strs[j]);
-                    map.put(strs[j], 1);
-                }
-            }
+        // for(int i = 0; i < strs.length; i++) {
+        //     if(map.containsKey(strs[i])) continue;
+        //     List<String> list = new ArrayList<>();
+        //     list.add(strs[i]);
+        //     map.put(strs[i], 1);
+        //     for(int j = i + 1; j < strs.length; j++) {
+        //         // if(map.containsKey(strs[j])) continue;
+        //         if(isAnagram(strs[i], strs[j])) {
+        //             list.add(strs[j]);
+        //             map.put(strs[j], 1);
+        //         }
+        //     }
 
-            ans.add(list);
-        }
+        //     ans.add(list);
+        // }
 
-        return ans;
+        // return ans;
     }
 
-    public boolean isAnagram(String s, String t) {
-        int[] f = new int[128];
+    // public boolean isAnagram(String s, String t) {
+    //     int[] f = new int[128];
 
-        if(s.length() != t.length()) return false;
+    //     if(s.length() != t.length()) return false;
 
-        for(int i = 0; i < s.length(); i++) {
-            f[s.charAt(i)]++;
-            f[t.charAt(i)]--;
-        }
+    //     for(int i = 0; i < s.length(); i++) {
+    //         f[s.charAt(i)]++;
+    //         f[t.charAt(i)]--;
+    //     }
 
-        for(int i = 0; i < f.length; i++) {
-            if(f[i] != 0) return false;
-        }
+    //     for(int i = 0; i < f.length; i++) {
+    //         if(f[i] != 0) return false;
+    //     }
 
-        return true;
-    }
+    //     return true;
+    // }
 }
 ```
 
