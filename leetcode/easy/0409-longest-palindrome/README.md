@@ -39,8 +39,8 @@ Explanation: The longest palindrome that can be built is "a", whose length is 1.
 
 **Language:** Java  
 **Runtime:** 7 ms (beats 46.61%)  
-**Memory:** 42.6 MB (beats 88.77%)  
-**Submitted:** 2026-10-31T14:33:08.068Z  
+**Memory:** 42.5 MB (beats 95.58%)  
+**Submitted:** 2026-10-31T14:39:18.647Z  
 
 ```java
 class Solution {
@@ -56,7 +56,11 @@ class Solution {
 
         for(char key : f.keySet()) {
 
-            len += (f.get(key) / 2) * 2;
+            if(f.get(key) % 2 != 0) {
+                len += f.get(key) - 1;
+            } else {
+                len += f.get(key);
+            }
 
             if(f.get(key) % 2 != 0) hasOdd = true;
  
