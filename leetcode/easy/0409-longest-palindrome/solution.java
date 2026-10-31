@@ -11,7 +11,11 @@ class Solution {
 
         for(char key : f.keySet()) {
 
-            len += (f.get(key) / 2) * 2;
+            if(f.get(key) % 2 != 0) {
+                len += f.get(key) - 1;
+            } else {
+                len += f.get(key);
+            }
 
             if(f.get(key) % 2 != 0) hasOdd = true;
  
