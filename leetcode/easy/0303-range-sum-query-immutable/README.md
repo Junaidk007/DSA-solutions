@@ -44,26 +44,29 @@ numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3
 ## Solution
 
 **Language:** Java  
-**Runtime:** 56 ms (beats 6.57%)  
-**Memory:** 47 MB (beats 97.79%)  
-**Submitted:** 2026-11-01T16:49:04.079Z  
+**Runtime:** 8 ms (beats 72.74%)  
+**Memory:** 47.2 MB (beats 87.39%)  
+**Submitted:** 2026-11-01T17:15:14.147Z  
 
 ```java
 class NumArray {
 
     int[] ar;
+    int[] pre;
 
     public NumArray(int[] nums) {
         ar = nums;
+        pre = new int[ar.length];
+
+        pre[0] = ar[0];
+
+        for(int i = 1; i < ar.length; i++) pre[i] = pre[i - 1] + ar[i];
     }
     
     public int sumRange(int left, int right) {
-        int sum = 0;
+        if(left != 0) return pre[right] - pre[left - 1];
 
-        for(int i = left; i <= right; i++) {
-            sum += ar[i];
-        }
-        return sum;
+        return pre[right];
     }
 }
 
