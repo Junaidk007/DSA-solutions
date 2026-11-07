@@ -38,28 +38,25 @@ Output: 4
 ## Solution
 
 **Language:** Java  
-**Runtime:** 47 ms (beats 68.17%)  
-**Memory:** 73.6 MB (beats 87.36%)  
-**Submitted:** 2026-10-20T05:03:08.258Z  
+**Runtime:** 52 ms (beats 65.05%)  
+**Memory:** 73.1 MB (beats 90.74%)  
+**Submitted:** 2026-11-07T04:31:55.584Z  
 
 ```java
 class Solution {
     public int findKthLargest(int[] nums, int k) {
-        int n = nums.length;
-        PriorityQueue<Integer> mHeap = new PriorityQueue<>();
-
-        for(int i = n - 1; i >= n - k; i--) {
-            mHeap.add(nums[i]);
-        }
-
-        for(int i = 0; i < n - k; i++) {
-            if(nums[i] > mHeap.peek()) {
-                mHeap.poll();
-                mHeap.add(nums[i]);
+        PriorityQueue<Integer> min = new PriorityQueue<>();
+        
+        for(int i = nums.length - 1; i >= nums.length - k; i--) min.add(nums[i]);
+        
+        for(int j = 0; j < nums.length - k; j++) {
+            if(min.peek() < nums[j]) {
+                min.poll();
+                min.add(nums[j]);
             }
         }
-
-        return mHeap.peek();
+        
+        return min.peek();
     }
 }
 ```
