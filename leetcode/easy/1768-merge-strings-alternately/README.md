@@ -58,27 +58,28 @@ merged: a p b q c   d
 ## Solution
 
 **Language:** Java  
-**Runtime:** 1 ms (beats 97.45%)  
-**Memory:** 42.5 MB (beats 84.84%)  
-**Submitted:** 2026-11-24T14:57:32.905Z  
+**Runtime:** 5 ms (beats 7.88%)  
+**Memory:** 43.2 MB (beats 25.24%)  
+**Submitted:** 2026-11-24T14:57:16.483Z  
 
 ```java
 class Solution {
     public String mergeAlternately(String word1, String word2) {
-        StringBuilder a = new StringBuilder();
+        String a = "";
+
         int i = 0; int j = 0;
 
         while(i < word1.length() || j < word2.length()) {
             if(i < word1.length()) {
-                a.append(word1.charAt(i++));
+                a += word1.charAt(i++);
             }
 
             if(j < word2.length()) {
-                a.append(word2.charAt(j++));
+                a += word2.charAt(j++);
             }
         }
 
-        return a.toString();
+        return a;
     }
 }
 ```
