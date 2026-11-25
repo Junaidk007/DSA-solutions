@@ -1,9 +1,8 @@
 class Solution {
     public String gcdOfStrings(String str1, String str2) {
-        StringBuilder s1 = new StringBuilder(str1 + str2);
-        StringBuilder s2 = new StringBuilder(str2 + str1);
-
-        if(!s1.toString().equals(s2.toString())) return "";
+        if(!(str1 + str2).equals(str2+str1)){
+            return "";
+        }
         int n = GCD(str1.length(), str2.length());
 
         return str1.substring(0, n);
