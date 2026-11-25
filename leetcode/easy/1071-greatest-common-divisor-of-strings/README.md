@@ -46,17 +46,16 @@ Java
 ## Solution
 
 **Language:** Java  
-**Runtime:** 2 ms (beats 19.98%)  
-**Memory:** 43.6 MB (beats 33.89%)  
-**Submitted:** 2026-11-25T16:22:53.362Z  
+**Runtime:** 1 ms (beats 95.16%)  
+**Memory:** 42.9 MB (beats 90.59%)  
+**Submitted:** 2026-11-25T16:28:23.531Z  
 
 ```java
 class Solution {
     public String gcdOfStrings(String str1, String str2) {
-        StringBuilder s1 = new StringBuilder(str1 + str2);
-        StringBuilder s2 = new StringBuilder(str2 + str1);
-
-        if(!s1.toString().equals(s2.toString())) return "";
+        if(!(str1 + str2).equals(str2+str1)){
+            return "";
+        }
         int n = GCD(str1.length(), str2.length());
 
         return str1.substring(0, n);
